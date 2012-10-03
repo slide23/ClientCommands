@@ -39,8 +39,11 @@ public class mod_ClientCommands extends BaseMod
     	instance = this;
 	}
 
-	public static mod_ClientCommands getInstance()
+	public static mod_ClientCommands getInstance() throws NullPointerException
 	{
+		if (instance == null)
+			throw new NullPointerException();
+
 		return instance;
 	}
 

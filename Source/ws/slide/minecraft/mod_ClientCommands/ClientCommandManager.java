@@ -44,7 +44,7 @@ public class ClientCommandManager implements ICommandManager
         ICommand command = getCommand(tokens[0]);
         if (command != null)
         {
-            executeCommand(new ClientCommandSender(this), commandLine);
+            executeCommand(getCommandSender(), commandLine);
         }
         return command != null;
     } // handleClientCommand
@@ -223,15 +223,23 @@ public class ClientCommandManager implements ICommandManager
         return args.toArray(new String[args.size()]);
     } // split
 
-    // --------------------------------------------------------------------------
-    /**
-     * Constructor.
-     * 
-     * Uncomment the body to register some test commands.
-     */
-    public ClientCommandManager()
-    {
-    } // ClientCommandManager
+	// --------------------------------------------------------------------------
+	/**
+	 * Contruct and cache a ClientCommandSender instance in demand.
+	 * 
+	 * The Minecraft.thePlayer instance may not be initialised at the time that
+	 * this ClientCommandManager is constructed, so defer initialisation to here.
+	 * 
+	 * @return the {@link ClientCommandSender}.
+	 */
+	public ICommandSender getCommandSender()
+	{
+		if (_sender == null)
+		{
+			_sender = new ClientCommandSender(this);
+		}
+		return _sender;
+	}
 
     // --------------------------------------------------------------------------
     /**
@@ -239,7 +247,7 @@ public class ClientCommandManager implements ICommandManager
      * says that the player can use them if they are registered with the
      * ClientCommandManager.
      */
-    ClientCommandSender _sender = new ClientCommandSender(this);
+    ClientCommandSender _sender;
 
     /**
      * A map from ICommand name to corresponding ICommand instance.
