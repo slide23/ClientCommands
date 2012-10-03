@@ -1,0 +1,21 @@
+--- ../../../../../IntelliChat/src clean +ml/minecraft/net/minecraft/src/GuiChat.java	2012-09-19 01:38:06.440050000 -0500
++++ ../../../../../IntelliChat/src/minecraft/net/minecraft/src/GuiChat.java	2012-10-03 01:03:43.167069965 -0500
+@@ -99,9 +99,9 @@
+             {
+                 this.mc.ingameGUI.getChatGUI().func_73767_b(var3);
+ 
+-                if (!this.mc.handleClientCommand(var3))
++                if (!mod_ClientCommands.getInstance().handleClientCommand(var3))
+                 {
+-                    this.mc.thePlayer.sendChatMessage(var3);
++                    this.mc.thePlayer.sendChatMessage(mod_ClientCommands.getInstance().executeChatCallbacks(var3));
+                 }
+             }
+ 
+@@ -365,4 +365,6 @@
+     {
+         return false;
+     }
++
++    public GuiTextField getInputField() { return this.inputField; }
+ }
