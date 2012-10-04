@@ -1,4 +1,4 @@
-package ws.slide.minecraft.mod_ClientCommands;
+package ClientCommands;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,4 +1,4 @@
-package ws.slide.minecraft.mod_ClientCommands;
+package ClientCommands;
 
 import net.minecraft.src.ICommandSender;
 import net.minecraft.src.ModLoader;

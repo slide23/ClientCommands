@@ -4,9 +4,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Map;
 
-import ws.slide.minecraft.mod_ClientCommands.ChatCallback;
-import ws.slide.minecraft.mod_ClientCommands.ClientCommandManager;
-import ws.slide.minecraft.mod_ClientCommands.ClientCommandSender;
+import ClientCommands.ChatCallback;
+import ClientCommands.ClientCommandManager;
+import ClientCommands.ClientCommandSender;
+
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.ModLoader;

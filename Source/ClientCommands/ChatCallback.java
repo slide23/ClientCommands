@@ -1,4 +1,4 @@
-package ws.slide.minecraft.mod_ClientCommands;
+package ClientCommands;
 
 public interface ChatCallback
 {
